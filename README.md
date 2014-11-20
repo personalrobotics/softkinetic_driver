@@ -5,4 +5,7 @@ A driver for the depthsense325 adapted specifically for ADA. Based on a driver f
 https://github.com/ipa320/softkinetic
 
 To run on ADA:
+    
     roslaunch softkinetic_driver softkinetic_camera_ds325.launch
+
+This will produce colored point clouds, a color image, a depth image, and TF frames.
