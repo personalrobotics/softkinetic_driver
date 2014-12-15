@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(softkinetic_camera)
+project(softkinetic_driver)
 
 # find the DepthSense SDK
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
@@ -13,7 +13,7 @@ find_package( PCL REQUIRED )
 
 if(NOT DepthSenseSDK_FOUND)
   message(FATAL_ERROR "+++++++++ Could not locate the DepthSense SDK +++++++++
-Please install the SDK before trying to build the 'softkinetic_camera' package, see README.txt.
+Please install the SDK before trying to build the 'softkinetic_driver' package, see README.txt.
 
 Cannot continue, aborting.")
   return()

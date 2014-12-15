@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package>
-  <name>softkinetic_camera</name>
+  <name>softkinetic_driver</name>
   <version>0.1.0</version>
-  <description>The softkinetic_camera package</description>
+  <description>The softkinetic_driver package</description>
 
   <maintainer email="flg@ipa.fhg.de">Felipe Garcia Lopez</maintainer>
   <author email="flg@ipa.fhg.de">Felipe Garcia Lopez</author>
