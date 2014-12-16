@@ -1,0 +1,11 @@
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/!svn/ver/31691/pr-ros-pkg/trunk/perception_utils/softkinetic_driver/softkinetic/softkinetic_camera/cmake
+END
+FindDepthSenseSDK.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/!svn/ver/31691/pr-ros-pkg/trunk/perception_utils/softkinetic_driver/softkinetic/softkinetic_camera/cmake/FindDepthSenseSDK.cmake
+END
