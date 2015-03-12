@@ -307,19 +307,21 @@ void onNewDepthSample(DepthNode node, DepthNode::NewSampleReceivedData data)
             count++;
             current_cloud->points[count].x = data.verticesFloatingPoint[count].x;
             current_cloud->points[count].y = -data.verticesFloatingPoint[count].y;
-            if(data.verticesFloatingPoint[count].z == 32001){
-                current_cloud->points[count].z = -1000;
-            }else{
+            if(data.verticesFloatingPoint[count].z == 32001 || data.depthMapFloatingPoint[count] < 0.001 || data.depthMapFloatingPoint[count] > 3)
+            {
+                current_cloud->points[count].z = std::numeric_limits<float>::quiet_NaN();
+            }
+            else
+            {
                 current_cloud->points[count].z = data.verticesFloatingPoint[count].z;
             }
 
 
 
              // Saturated pixels on depthMapFloatingPoint have -1 value, but on openni are NaN
-            if (data.depthMapFloatingPoint[count] < 0.0)
+            if (data.depthMapFloatingPoint[count] < 0.001)
             {
-            *reinterpret_cast<float*>(&depth_img_msg.data[count*sizeof(float)]) =
-            std::numeric_limits<float>::quiet_NaN();
+                *reinterpret_cast<float*>(&depth_img_msg.data[count*sizeof(float)]) = std::numeric_limits<float>::quiet_NaN();
             }
 
 
@@ -329,7 +331,7 @@ void onNewDepthSample(DepthNode node, DepthNode::NewSampleReceivedData data)
                 continue;
             }
             p3DPoints[0] = data.vertices[count];
-	    g_pProjHelper->get2DCoordinates(p3DPoints, p2DPoints, 2, CAMERA_PLANE_COLOR);
+	        g_pProjHelper->get2DCoordinates(p3DPoints, p2DPoints, 2, CAMERA_PLANE_COLOR);
             int x_pos = (int)p2DPoints[0].x;
             int y_pos = (int)p2DPoints[0].y;
 
