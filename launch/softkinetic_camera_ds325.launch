@@ -8,7 +8,7 @@ The arguments given are the device indices of the cameras determined by the Dept
   <arg name="color" default="true" />
   <node name="softkinetic_driver" pkg="softkinetic_driver" type="softkinetic_bringup_node" args="0" output="screen" >
     <param name="camera_link"           type="string"    value="base_rgbd_camera_link" />
-    <param name="confidence_threshold"  type="int"       value="1000"   />
+    <param name="confidence_threshold"  type="int"       value="50"   />
 
     <!-- Downsampling (using PCL voxel grid filter) -->
     <param name="use_voxel_grid_filter" type="bool"      value="false"  />
@@ -21,7 +21,7 @@ The arguments given are the device indices of the cameras determined by the Dept
     <param name="minNeighboursInRadius" type="int"       value="50"    />
 
     <param name="enable_depth"          type="bool"      value="$(arg depth)"  />
-    <param name="depth_mode"            type="string"    value="close"  /> <!-- close or long -->
+    <param name="depth_mode"            type="string"    value="long"  /> <!-- close or long -->
     <param name="depth_frame_format"    type="string"    value="QVGA" /> <!-- QQVGA, QVGA, VGA -->
     <param name="depth_frame_rate"      type="int"       value="25"    /> <!-- 25, 30 -->
 
